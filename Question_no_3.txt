@@ -1,0 +1,11 @@
+Question No. 3) 
+Suppose you have 2 tables as below
+I.	Employee(EmpNo(PK), Ename, Job, MGR, Hiredate, Salary, DeptNo) 
+II.	Department(DeptNo(PK), Dname, Location) 
+Write a query that shows department name and total number of employees in each department with the format as DEPTPARTMENT NAME:NUMBER OF EMPLOYEE
+
+Ans: 
+select t1.Dname as ‘DEPTPARTMENT NAME’, count(t2.EmpNo) as ‘NUMBER OF EMPLOYEE’ from 
+Department t1 inner join Employee t2 
+on t1.DeptNo=t2.DeptNo 
+group by t1.DeptNo
