@@ -1,0 +1,63 @@
+#include<stdio.h>
+#include<conio.h>
+int findMax(char str[]);
+int countLen(int a,char str[]);
+void main()
+{
+char str[100];
+int maxLen;
+clrscr();
+puts("enter string with .,?,!");
+gets(str);
+maxLen=findMax(str);
+printf("\nmaximum lenth=%d",maxLen);
+getch();
+}
+
+int findMax(char str[])
+{ int arr[20];
+  int i,k,c,t,j=1,max=0,countarr[10];
+  arr[0]=0;
+   for(i=0;i<=strlen(str);i++)
+   {
+    if(str[i]=='.'|| str[i]=='?'|| str[i]=='!')
+      {
+
+       arr[j]=i;
+       j++;
+      }
+   }
+    for(k=0;k<j;k++)
+    {
+   printf("arr[%d]=%d",k,arr[k]);
+    //}
+    countarr[k]=countLen(arr[k],str);
+
+  // printf("\ncountarr[%d]=%d",k,countarr[k]);
+  // printf("\ncountarr=%d",countarr1);
+     }
+   max=countarr[0];
+   for( c=1;c<=3;c++)
+   {
+    if(countarr[c]>max)
+    {
+      max=countarr[c];
+    }
+   }
+  return max;
+
+}
+int countLen(int a,char str[])
+  {
+   int i,count=0;
+   for(i=0;i<=a;i++)
+   {
+    if(str[i]==' '|| str[i]==str[a] || str[i]=='\0')
+    {
+     count=count+1;
+    }
+  }
+
+  printf("\ncount=%d",count);
+  return count;
+}
